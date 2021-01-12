@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-image: linear-gradient(to top right, #4cbf87, #087fab);
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  min-height: 10vh;
+}
+
+header h1 {
+  font-weight: 300;
+  font-size: 36px;
+}
+
+main {
+  min-height: 80vh;
+  display: grid;
+  grid-template-rows: 400px 400px;
+  grid-template-columns: 500px 500px;
+  grid-template-areas: "card info" "forecast forecast";
+  align-items: center;
+  justify-items: center;
+}
+
+.card-container {
+  grid-area: card;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  height: 400px;
+  width: 300px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 1rem 0 rgba(255, 255, 255, 0.2);
+}
+
+.temperature {
+  font-size: 44px;
+}
+
+.min-max {
+  font-weight: 200;
+}
+
+.description {
+  margin: 30px 0;
+  font-weight: 300;
+  font-size: 26px;
+}
+
+.week-forecast {
+  grid-area: forecast;
+  display: flex;
+  width: 1000px;
+  height: 225px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  box-shadow: 0 0 1rem 0 rgba(255, 255, 255, 0.2);
+}
+
+.week-forecast div {
+  width: calc(1000px /7);
+}
+
+.week-forecast :nth-child(7) {
+  border: none;
+}
+
+.week-card {
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.day {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.day-min, .day-max {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.info {
+  grid-area: info;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  box-shadow: 0 0 1rem 0 rgba(255, 255, 255, 0.2);
+  padding: 20px;
+}
+
+.info div {
+  margin: 10px;
+  font-weight: 200;
+}
+/*# sourceMappingURL=style.css.map */
