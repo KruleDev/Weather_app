@@ -36,8 +36,7 @@ window.addEventListener("load", ()=>{
 
            const proxy = `http://cors-anywhere.herokuapp.com/`;
            const api=`${proxy}api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&exclude=minutely,hourly&appid=83873c9421d1b05a1e1207dd3f8d8909`;
-            //const api=`api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&exclude=minutely,hourly&appid=83873c9421d1b05a1e1207dd3f8d8909`;
-           // api.openweathermap.org/data/2.5/forecast?lat=50.4895&lon=5.0971&appid=83873c9421d1b05a1e1207dd3f8d8909
+
             
 
             fetch(api)
@@ -79,7 +78,7 @@ window.addEventListener("load", ()=>{
                 humidity.innerText=`Humidity: ${currentHumidity} %`;
                 cloudiness.innerText=`Clouds: ${currentCloudiness} %`;
                 sunrise.innerText=`Sunrise: ${getHourAndMinute(currentSunR*1000)}`;
-                sunset.innerText=`Sunrise: ${getHourAndMinute(currentSunS*1000)}`;
+                sunset.innerText=`Sunset: ${getHourAndMinute(currentSunS*1000)}`;
                 console.log(typeof currentSunS)
                
 
@@ -99,5 +98,11 @@ function capitalizeFirstLetter(string) {
 function getHourAndMinute(StrDate){
     let date=new Date(StrDate);
     
-    return `${date.getHours()}h${date.getMinutes()}`;
+    return `${toDoubleDigit(date.getHours())}h${toDoubleDigit(date.getMinutes())}`;
 }
+
+function toDoubleDigit(n){
+    return n > 9 ? "" + n: "0" + n;
+}
+
+console.log("loaded")
