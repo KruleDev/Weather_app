@@ -6,9 +6,10 @@
 
 body {
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   color: white;
   background-image: linear-gradient(to top right, #4cbf87, #087fab);
   font-family: 'Nunito', sans-serif;
@@ -27,11 +28,11 @@ header h1 {
 }
 
 main {
-  min-height: 80vh;
   display: grid;
-  grid-template-rows: 400px 400px;
+  grid-template-rows: 400px 320px;
   grid-template-columns: 500px 500px;
-  grid-template-areas: "card info" "forecast forecast";
+  grid-template-areas: "card info"
+ "forecast forecast";
   align-items: center;
   justify-items: center;
 }
@@ -48,6 +49,7 @@ main {
   padding: 10px 20px;
   border-radius: 20px;
   box-shadow: 0 0 1rem 0 rgba(255, 255, 255, 0.2);
+  margin: 20px 0;
 }
 
 .temperature {
@@ -65,10 +67,9 @@ main {
 }
 
 .week-forecast {
+  margin: 20px 0;
   grid-area: forecast;
   display: flex;
-  width: 1000px;
-  height: 225px;
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(5px);
   border-radius: 20px;
@@ -103,6 +104,7 @@ main {
 }
 
 .info {
+  margin: 20px 0;
   grid-area: info;
   width: 400px;
   background-color: rgba(255, 255, 255, 0.15);
@@ -115,5 +117,102 @@ main {
 .info div {
   margin: 10px;
   font-weight: 200;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+footer .dev {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+footer .resources {
+  padding: 10px;
+}
+
+footer .resources a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-weight: 100;
+}
+
+@media screen and (max-width: 1050px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .week-forecast {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: "c1 c1 c2 c2 c3 c3 c4 c4"
+ ". c5 c5 c6 c6 c7 c7 .";
+  }
+  .week-forecast .week-card {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .week-forecast :nth-child(1) {
+    grid-area: c1;
+  }
+  .week-forecast :nth-child(2) {
+    grid-area: c2;
+  }
+  .week-forecast :nth-child(3) {
+    grid-area: c3;
+  }
+  .week-forecast :nth-child(4) {
+    grid-area: c4;
+    border-right: none;
+  }
+  .week-forecast :nth-child(5) {
+    grid-area: c5;
+    border-bottom: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .week-forecast :nth-child(6) {
+    grid-area: c6;
+    border-bottom: none;
+  }
+  .week-forecast :nth-child(7) {
+    grid-area: c7;
+    border-bottom: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .week-forecast {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: "c1 c1 c2 c2" 
+ "c3 c3 c4 c4"
+ "c5 c5 c6 c6" 
+ ". c7 c7 .";
+  }
+  .week-forecast :nth-child(2) {
+    border-right: none;
+  }
+  .week-forecast :nth-child(5) {
+    border-left: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .week-forecast :nth-child(6) {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .week-forecast :nth-child(7) {
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .info {
+    width: 300px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
